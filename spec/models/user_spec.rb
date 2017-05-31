@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
   it "should work" do
     expect {
       create :user
-    }.to change{User.count}.by(1)
+    }.to change{ User.count }.by(1)
   end
 
   it "should authenticate" do
