@@ -1,0 +1,11 @@
+= form_tag sessions_path, class: "form-signin"  do   
+  h2.form-signin-heading Please sign in
+  -if @signin.errors.any?
+    ul.form-alert__box
+      - @signin.errors.each do |msg|
+        li.form-alert__msg = msg
+      
+  = text_field_tag "signin[name]", @signin.name, placeholder: "User Password", class: "form-control"
+  = password_field_tag "signin[password]", @signin.password, placeholder: "User Password", class: "form-control"
+  = submit_tag  "Sign In", class: "btn btn-primary form-control"
+  

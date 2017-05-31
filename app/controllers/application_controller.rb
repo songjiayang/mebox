@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
 
   protected
-  
+
   def current_user
     @current_user ||= User.find(session[:user_id])
   end
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def should_login
-    redirect_to new_users_path unless login?
+    redirect_to new_sessions_path unless login?
   end
 
   def should_sign_out

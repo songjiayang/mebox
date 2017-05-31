@@ -49,3 +49,5 @@ vendor/bundle/
 
 # coverage
 coverage/
+
+.byebug_history
