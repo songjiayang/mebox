@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'kaminari'
 
 gem 'puma', '~> 3.8', '>= 3.8.2'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 group :development do
   gem "better_errors"
@@ -29,9 +30,15 @@ end
 
 group :development, :test do
   gem 'byebug'
-
-  gem 'rspec-rails', '~> 3.6'
-  gem 'factory_girl_rails', '~> 4.8'
   gem 'did_you_mean', '~> 1.0.2'
   gem 'rubocop'
+  gem 'factory_girl_rails', '~> 4.8'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 3.6'
+  gem 'shoulda-matchers', require: false
+
+  gem 'randexp', '~> 0.1.7'
+  gem 'database_cleaner', '~> 1.6', '>= 1.6.1'
 end
