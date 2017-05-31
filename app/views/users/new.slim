@@ -1,0 +1,11 @@
+= form_for @user, html: { class: "form-signin" } do |f|    
+  h2.form-signin-heading Please sign up
+  -if @user.errors.any?
+    ul.form-alert__box
+      - @user.errors.to_a.each do |msg|
+        li.form-alert__msg = msg
+      
+  = f.email_field :name, placeholder: "User name", class: "form-control"
+  = f.password_field :password, placeholder: "User Password", class: "form-control"
+  = f.submit "Sign Up", class: "btn btn-primary form-control"
+  
