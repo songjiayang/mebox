@@ -9,10 +9,11 @@
 #  updated_at      :datetime         not null
 #
 
-class User < ActiveRecord::Base
-  has_secure_password
+require 'randexp'
 
-  validates :name, presence: true, uniqueness: true
-
-  has_many :contacts, dependent: :destroy
+FactoryGirl.define do
+  factory :contact do
+    user_id Random.rand(1000)
+    contacted_id Random.rand(1000)
+  end
 end
