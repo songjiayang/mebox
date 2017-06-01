@@ -44,6 +44,10 @@ class MessagesController < ApplicationController
       return
     end
 
+    channel_data = message.attributes
+    channel_data[:deleted] = true
+    MessageBus.publish "/chatchannel-#{message.reciver_id}-#{message.sender_id}", channel_data, user_ids: [message.reciver_id]
+    
     render json: {}
   end
 

@@ -75,19 +75,23 @@ class Views.Chats.ShowView extends Views.BaseView
       alert response.responseJSON.message
 
   onSubscribe: (data) =>
-    @$ui.messageBox.append(@messageItemDom(data))
+    if data.deleted
+      item = @$ui.messageBox.find("#message__item-#{data.id}")
+      item.remove() if item.length
+    else
+      @$ui.messageBox.append(@messageItemDom(data))
 
-    # touch contact new_message
-    payload =
-      url: "/contacts/#{@contactId}"
-      method: 'PATCH'
-    $.ajax(payload).fail (response) =>
-      console.log response.responseJSON.message
+      # touch contact new_message
+      payload =
+        url: "/contacts/#{@contactId}"
+        method: 'PATCH'
+      $.ajax(payload).fail (response) =>
+        console.log response.responseJSON.message
 
   messageItemDom: (message) =>
     if message.sender_id != @reciverId
       """
-        <div class="message__item row">
+        <div class="message__item row" id="message__item-#{message.id}">
           <div class="col-xs-12">
             <div class="alert message__item-content alert-success pull-right">
               #{message.content}
@@ -100,7 +104,7 @@ class Views.Chats.ShowView extends Views.BaseView
       """
     else
       """
-        <div class="message__item row">
+        <div class="message__item row" id="message__item-#{message.id}">
           <div class="col-xs-12">
             <div class="alert message__item-content alert-info pull-left">
               #{message.content}
