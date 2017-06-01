@@ -1,0 +1,49 @@
+.form-control {
+  margin-bottom: 10px;
+}
+
+.form-alert__box {
+  color: red;
+}
+
+.chat__message-box {
+  padding-bottom: 20px;
+}
+
+.message__item-content {
+  position: relative;
+  button {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    visibility: hidden;
+  }
+
+  &:hover{
+    button {
+      visibility: visible;
+    }
+  }
+}
+
+.chat__message-box {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.contacts__item .new-message__cycle{
+  visibility: hidden;
+}
+
+.new-message-container {
+  position: relative;
+  .new-message__cycle {
+    color: red;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid red;
+    padding: 0px 7px;
+    visibility: visible;
+    margin-left: 6px;
+  }
+}

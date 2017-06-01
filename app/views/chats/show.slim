@@ -1,0 +1,13 @@
+.container
+  .page-header
+    h3.text-center
+      = @talker.name
+  .chat-container
+    .text-center
+      .btn.btn-default.js-loadmore.small-text data-page-size=10
+        | 加载更多消息...
+    .chat__message-box data-reciver-id=@talker.id data-user-id=current_user_id data-contact-id=@contact.id
+    form.chat__form method="post"
+      textarea.form-control rows="2"
+      button.btn.btn-primary.pull-right
+        | 发送

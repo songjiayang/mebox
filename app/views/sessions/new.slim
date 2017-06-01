@@ -8,4 +8,5 @@
   = text_field_tag "signin[name]", @signin.name, placeholder: "User Password", class: "form-control"
   = password_field_tag "signin[password]", @signin.password, placeholder: "User Password", class: "form-control"
   = submit_tag  "Sign In", class: "btn btn-primary form-control"
+  = link_to "Sign Up", new_users_path
   

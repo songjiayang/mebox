@@ -11,10 +11,10 @@ gem 'turbolinks', '~> 5.0', '>= 5.0.1'
 gem 'mysql2', '~> 0.4.6'
 gem 'slim', '~> 3.0.6'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'kaminari'
 
 gem 'puma', '~> 3.8', '>= 3.8.2'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'message_bus'
 
 group :development do
   gem "better_errors"

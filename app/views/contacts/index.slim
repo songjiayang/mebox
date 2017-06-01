@@ -1,0 +1,18 @@
+.container
+  .page-header
+    h1 
+      | MeBox
+      = link_to sessions_path, method: :delete, class: "pull-right"
+        | 退出
+  .contacts-container
+    .contacts__search-box
+      form method="post"
+        input.form-control placeholder="Search"
+    .contacts__list
+    .contacts__list-footer
+      button.btn.js-loadmore data-pageSize=@page_size
+        | Load More
+    
+footer.footer
+  .container
+    p.text-muted 

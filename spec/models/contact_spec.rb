@@ -1,12 +1,13 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: contacts
 #
-#  id              :integer          not null, primary key
-#  name            :string(255)      not null
-#  password_digest :string(255)      not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id           :integer          not null, primary key
+#  user_id      :integer          not null
+#  contacted_id :string(255)      not null
+#  new_message  :integer          default(0)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 require 'rails_helper'

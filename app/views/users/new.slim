@@ -5,7 +5,8 @@
       - @user.errors.to_a.each do |msg|
         li.form-alert__msg = msg
       
-  = f.email_field :name, placeholder: "User name", class: "form-control"
+  = f.text_field :name, placeholder: "User name", class: "form-control"
   = f.password_field :password, placeholder: "User Password", class: "form-control"
   = f.submit "Sign Up", class: "btn btn-primary form-control"
+  = link_to "Sign In", new_sessions_path
   
