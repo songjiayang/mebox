@@ -1,14 +1,16 @@
 class ChatsController < ApplicationController
   def show
-    @talker = User.find_by(name: params[:cid])
-    if @talker.nil?
-      render status: 404
-      return
-    end
-
-    # just refresh contact new_message
+    load_talker or return
     @contact = current_user.contacts
                   .find_by(contacted_id: @talker.name)
     @contact.update_attributes(new_message: 0)
+  end
+
+  private
+
+  def load_talker
+    @talker = User.find_by(name: params[:cid])
+    render json: {}, status: 404 unless @talker
+    @talker
   end
 end

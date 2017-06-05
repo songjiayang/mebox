@@ -19,7 +19,7 @@ class Views.Chats.ShowView extends Views.BaseView
 
     userId = @$ui.messageBox.attr("data-user-id")
 
-    MessageBus.subscribe "/chatchannel-#{userId}-#{@reciverId}", @onSubscribe
+    MessageBus.subscribe "/chat-channel-#{userId}-#{@reciverId}", @onSubscribe
 
   cleanup: ->
     @$ui.messageBox.html("")

@@ -14,7 +14,7 @@ class Views.Contacts.IndexView extends Views.BaseView
     @$ui.loadMore.on 'click', (event) => @onLoadMore(event)
     @$ui.loadMore.trigger 'click'
 
-    MessageBus.subscribe "/contactchannel", @onSubscribe
+    MessageBus.subscribe "/contact-channel", @onSubscribe
 
   cleanup: ->
     @$ui.listContainer.html("")

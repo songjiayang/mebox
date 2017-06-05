@@ -22,4 +22,15 @@ class Message < ActiveRecord::Base
         "sender_id=? AND reciver_id =? OR sender_id=? AND reciver_id =?",
         sid, rid, rid, sid
       )}
+
+  attr_reader :notice_contact, :notice_contact_created
+  after_create :check_reciver_contact
+
+  private
+
+  def check_reciver_contact
+    @notice_contact, @notice_contact_created = self.reciver.contact_with!(self.sender.name)
+    @notice_contact.new_message += 1
+    @notice_contact.save
+  end
 end
